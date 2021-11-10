@@ -40,23 +40,24 @@ function AppBar(): JSX.Element {
                   <div className="hidden sm:block sm:ml-4">
                     <div className="flex space-x-2">
                       {/* <Buy /> */}
-                      <NavLink href="/swap">
+                      {/* <NavLink href="/swap">
                         <a
                           id={`swap-nav-link`}
                           className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                         >
                           {i18n._(t`Swap`)}
                         </a>
-                      </NavLink>
-                      <NavLink href="/pool">
+                      </NavLink> */}
+                      {/* <NavLink href="/pool">
                         <a
                           id={`pool-nav-link`}
                           className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                         >
                           {i18n._(t`Pool`)}
                         </a>
-                      </NavLink>
-                      {chainId && [ChainId.MAINNET, ChainId.MATIC, ChainId.BSC].includes(chainId) && (
+                      </NavLink> */}
+
+                      {/* {chainId && [ChainId.MAINNET, ChainId.MATIC, ChainId.BSC].includes(chainId) && (
                         <NavLink href={'/migrate'}>
                           <a
                             id={`migrate-nav-link`}
@@ -113,7 +114,7 @@ function AppBar(): JSX.Element {
                               </a>
                             </NavLink>
                           </>
-                        )}
+                        )} */}
                       {chainId === ChainId.MAINNET && (
                         <NavLink href={'/stake'}>
                           <a

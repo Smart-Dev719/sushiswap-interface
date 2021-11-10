@@ -45,15 +45,15 @@ const StyledNumericalInput = styled(NumericalInput)`
 `
 
 const tabStyle = 'flex justify-center items-center h-full w-full rounded-lg cursor-pointer text-sm md:text-base'
-const activeTabStyle = `${tabStyle} text-high-emphesis font-bold bg-dark-900`
-const inactiveTabStyle = `${tabStyle} text-secondary`
+const activeTabStyle = `${tabStyle} text-high-emphesis font-bold bg-black`
+const inactiveTabStyle = `${tabStyle} text-white`
 
 const buttonStyle =
   'flex justify-center items-center w-full h-14 rounded font-bold md:font-medium md:text-lg mt-5 text-sm focus:outline-none focus:ring'
-const buttonStyleEnabled = `${buttonStyle} text-high-emphesis bg-gradient-to-r from-pink-red to-light-brown hover:opacity-90`
+const buttonStyleEnabled = `${buttonStyle} text-high-emphesis bg-secondary to-light-brown hover:opacity-90`
 const buttonStyleInsufficientFunds = `${buttonStyleEnabled} opacity-60`
-const buttonStyleDisabled = `${buttonStyle} text-secondary bg-dark-700`
-const buttonStyleConnectWallet = `${buttonStyle} text-high-emphesis bg-cyan-blue hover:bg-opacity-90`
+const buttonStyleDisabled = `${buttonStyle} text-high-emphesis bg-gradient  to-light-brown hover:opacity-90 `
+const buttonStyleConnectWallet = `${buttonStyle} text-high-emphesis bg-secondary hover:bg-opacity-90 `
 
 const fetcher = (query) => request('https://api.thegraph.com/subgraphs/name/matthewlilley/bar', query)
 
@@ -222,7 +222,15 @@ export default function Stake() {
         <div className="flex flex-col justify-center md:flex-row">
           <div className="flex flex-col w-full max-w-xl mx-auto mb-4 md:m-0">
             <div className="mb-4">
-              <div className="flex items-center justify-between w-full h-24 max-w-xl p-4 rounded md:pl-5 md:pr-7 bg-light-yellow bg-opacity-40">
+              <div
+                className="flex items-center justify-between w-full h-24 max-w-xl p-4 rounded md:pl-5 md:pr-7 bg-opacity-40"
+                style={{
+                  backgroundColor: 'rgb(42 42 42 / 70%)',
+                  borderColor: '#fdfff6',
+                  borderRadius: '15px',
+                  borderWidth: '1px',
+                }}
+              >
                 <div className="flex flex-col">
                   <div className="flex items-center justify-center mb-4 flex-nowrap md:mb-2">
                     <p className="text-sm font-bold whitespace-nowrap md:text-lg md:leading-5 text-high-emphesis">
@@ -238,7 +246,8 @@ export default function Stake() {
                       className={`
                         py-1 px-4 md:py-1.5 md:px-7 rounded
                         text-xs md:text-sm font-medium md:font-bold text-dark-900
-                        bg-light-yellow hover:bg-opacity-90`}
+                        bg-light-yellow hover:opacity-80`}
+                      style={{ backgroundColor: '#d7d7d7', borderColor: 'rgb(22 22 21)', borderWidth: '1px' }}
                     >
                       {i18n._(t`View Stats`)}
                     </a>
@@ -256,8 +265,19 @@ export default function Stake() {
             </div>
             <div>
               <TransactionFailedModal isOpen={modalOpen} onDismiss={() => setModalOpen(false)} />
-              <div className="w-full max-w-xl px-3 pt-2 pb-6 rounded bg-dark-900 md:pb-9 md:pt-4 md:px-8">
-                <div className="flex w-full rounded h-14 bg-dark-800">
+              <div
+                className="w-full max-w-xl px-3 pt-2 pb-6 rounded  md:pb-9 md:pt-4 md:px-8"
+                style={{
+                  backgroundColor: 'rgb(42 42 42 / 70%)',
+                  borderColor: '#fdfff6',
+                  borderRadius: '15px',
+                  borderWidth: '1px',
+                }}
+              >
+                <div
+                  className="flex w-full rounded h-14 bg-light-yellow"
+                  style={{ backgroundColor: 'rgb(106 105 105)', borderColor: 'rgb(22 22 21)', borderWidth: '1px' }}
+                >
                   <div
                     className="h-full w-6/12 p-0.5"
                     onClick={() => {
@@ -286,7 +306,15 @@ export default function Stake() {
                   <p className="font-bold text-large md:text-2xl text-high-emphesis">
                     {activeTab === 0 ? i18n._(t`Stake SUSHI`) : i18n._(t`Unstake`)}
                   </p>
-                  <div className="border-gradient-r-pink-red-light-brown-dark-pink-red border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal">
+                  <div
+                    className=" border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal"
+                    style={{
+                      backgroundColor: 'rgb(42 42 42 / 70%)',
+                      borderColor: '#fdfff6',
+                      borderRadius: '15px',
+                      borderWidth: '1px',
+                    }}
+                  >
                     {`1 xSUSHI = ${xSushiPerSushi.toFixed(4)} SUSHI`}
                   </div>
                 </div>
@@ -306,6 +334,12 @@ export default function Stake() {
                     className={`flex justify-between items-center h-14 rounded px-3 md:px-5 ${
                       inputError ? ' border border-red' : ''
                     }`}
+                    style={{
+                      backgroundColor: 'rgb(42 42 42 / 70%)',
+                      borderColor: '#fdfff6',
+                      borderRadius: '15px',
+                      borderWidth: '1px',
+                    }}
                   >
                     <div className="flex space-x-2 ">
                       {inputError && (
@@ -331,6 +365,12 @@ export default function Stake() {
                         <p className="text-base font-bold">{formattedBalance}</p>
                       </div>
                       <button
+                        style={{
+                          backgroundColor: 'rgb(42 42 42 / 70%)',
+                          borderColor: '#fdfff6',
+                          color: 'white',
+                          borderWidth: '1px',
+                        }}
                         className="px-2 py-1 ml-3 text-xs font-bold border pointer-events-auto focus:outline-none focus:ring hover:bg-opacity-40 md:bg-cyan-blue md:bg-opacity-30 border-secondary md:border-cyan-blue rounded-2xl md:py-1 md:px-3 md:ml-4 md:text-sm md:font-normal md:text-cyan-blue"
                         onClick={handleClickMax}
                       >
@@ -343,6 +383,13 @@ export default function Stake() {
                 activeTab === 0 ? (
                   <Button
                     className={`${buttonStyle} text-high-emphesis bg-cyan-blue hover:bg-opacity-90`}
+                    style={{
+                      backgroundColor: '#d7d7d7',
+                      color: 'black',
+                      borderColor: 'black',
+                      borderRadius: '15px',
+                      borderWidth: '1px',
+                    }}
                     disabled={approvalState === ApprovalState.PENDING}
                     onClick={approve}
                   >
@@ -354,15 +401,13 @@ export default function Stake() {
                   </Button>
                 ) : (
                   <button
-                    className={
-                      buttonDisabled
-                        ? buttonStyleDisabled
-                        : !walletConnected
-                        ? buttonStyleConnectWallet
-                        : insufficientFunds
-                        ? buttonStyleInsufficientFunds
-                        : buttonStyleEnabled
-                    }
+                    style={{
+                      backgroundColor: '#d7d7d7',
+                      color: 'black',
+                      borderColor: 'rgb(22 22 21)',
+                      borderWidth: '1px',
+                    }}
+                    className={buttonStyleEnabled}
                     onClick={handleClickButton}
                     disabled={buttonDisabled || inputError}
                   >
@@ -381,7 +426,15 @@ export default function Stake() {
             </div>
           </div>
           <div className="w-full max-w-xl mx-auto md:mx-0 md:ml-6 md:block md:w-72">
-            <div className="flex flex-col w-full px-4 pt-6 pb-5 rounded bg-dark-900 md:px-8 md:pt-7 md:pb-9">
+            <div
+              className="flex flex-col w-full px-4 pt-6 pb-5 rounded bg-dark-900 md:px-8 md:pt-7 md:pb-9"
+              style={{
+                backgroundColor: 'rgb(42 42 42 / 70%)',
+                borderColor: '#fdfff6',
+                borderRadius: '15px',
+                borderWidth: '1px',
+              }}
+            >
               <div className="flex flex-wrap">
                 <div className="flex flex-col flex-grow md:mb-14">
                   <p className="mb-3 text-lg font-bold md:text-2xl md:font-medium text-high-emphesis">
@@ -446,10 +499,16 @@ export default function Stake() {
                       className={`
                                 flex flex-grow justify-center items-center
                                 h-14 mt-6 rounded
-                                bg-dark-700 text-high-emphesis
-                                focus:outline-none focus:ring hover:bg-opacity-80
+                                 text-high-emphesis
+                                focus:outline-none focus:ring hover:opacity-80
                                 text-sm font-bold cursor-pointer
                             `}
+                      style={{
+                        backgroundColor: 'rgb(42 42 42 / 70%)',
+                        borderColor: '#fdfff6',
+                        borderRadius: '15px',
+                        borderWidth: '1px',
+                      }}
                     >
                       {i18n._(t`Your SushiBar Stats`)}
                     </a>
